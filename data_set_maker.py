@@ -24,13 +24,13 @@ def sample_set(image_dir, mask_dir ):
     for i in filenames_random:
       ff = i.split('/')[-1]
       os.rename(i,'./'+group+'/'+'binary_mask/'+ff)
-      shutil.copytree('./tiles/'+ff,'./'+group+'/'+'test/'+ff)
+      shutil.copytree('./tiles/'+ff,'./'+group+'/'+'tiles/'+ff)
 
-  #training handling
-  filenames = glob.glob(mask_dir + '*.tif')
-  ff = filenames.split('/')[-1]
-  os.rename(i,'./'+group+'/'+'binary_mask/'+ff)
-  shutil.copytree('./tiles/'+ff,'./'+group+'/'+'test/'+ff)
+    #training handling
+  for i in glob.glob(mask_dir + '*.tif'):
+    ff = i.split('/')[-1]
+    os.rename(i,'./train/binary_mask/'+ff)
+    shutil.copytree('./tiles/'+ff,'./train/tiles/'+ff)
 
 
 def main():
