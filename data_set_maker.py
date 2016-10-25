@@ -4,7 +4,7 @@ import cv2 as cv
 import glob
 import os
 import random
-import shutil.copytree
+import shutil
 
 def greyscale_tifs(image_dir, new_dir):
   for mask in glob.glob(image_dir + '*.tif'):
@@ -24,13 +24,13 @@ def sample_set(image_dir, mask_dir ):
     for i in filenames_random:
       ff = i.split('/')[-1]
       os.rename(i,'./'+group+'/'+'binary_mask/'+ff)
-      shutil.copytree('./tiles/'+ff,'./'+group+'/'+'tiles/'+ff)
+      shutil.copyfile('./tiles/'+ff,'./'+group+'/'+'tiles/'+ff)
 
     #training handling
   for i in glob.glob(mask_dir + '*.tif'):
     ff = i.split('/')[-1]
     os.rename(i,'./train/binary_mask/'+ff)
-    shutil.copytree('./tiles/'+ff,'./train/tiles/'+ff)
+    shutil.copyfile('./tiles/'+ff,'./train/tiles/'+ff)
 
 
 def main():
