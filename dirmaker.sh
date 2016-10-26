@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ./binary_mask;
+
 mkdir ./cv;
 mkdir ./cv/binary_mask;
 mkdir ./cv/tiles;
