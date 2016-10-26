@@ -32,9 +32,9 @@ def sample_set(image_dir, mask_dir ):
     os.rename(i,'./train/binary_mask/'+ff)
     shutil.copyfile('./tiles/'+ff,'./train/tiles/'+ff)
 
-
 def main():
   greyscale_tifs( './mask/', './binary_mask/')
+  sample_set('./tiles/' , './binary_mask/')
 
 if __name__ == '__main__':
   main()
