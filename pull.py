@@ -19,8 +19,8 @@ def main():
 
   maskurl = 'https://s3.amazonaws.com/crowdai-ml-challenge/masks_urls.txt'
   tileurl = 'https://s3.amazonaws.com/crowdai-ml-challenge/tiles_urls.txt'
-  maskdir = './mask'
-  tiledir = './tiles'
+  maskdir = './mask/'
+  tiledir = './tiles/'
 
   masklist = file_list_reader(maskurl)
   tilelist = file_list_reader(tileurl)
