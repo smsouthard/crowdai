@@ -1,4 +1,4 @@
-#!usr/bin/env ipython2
+#!usr/bin/env ipython
 
 import cv2 as cv
 import glob
@@ -32,9 +32,19 @@ def sample_set(image_dir, mask_dir ):
     os.rename(i,'./train/binary_mask/'+ff)
     shutil.copyfile('./tiles/'+ff,'./train/tiles/'+ff)
 
+def trimmer(image_dir):
+  for mask in glob.glob(image_dir + '*.tif'):
+    img = cv.imread(mask)
+    cv.imwrite(mask, img[0:406, 0:406])
+
+
 def main():
+  trimmer('./mask/')
+  trimmer('./tiles')
   greyscale_tifs( './mask/', './binary_mask/')
   sample_set('./tiles/' , './binary_mask/')
+ 
+
 
 if __name__ == '__main__':
   main()
